@@ -1,0 +1,55 @@
+users
+- _id
+- name 
+- email 
+- state 
+- passwordHash 
+- token 
+
+states 
+- _id 
+- name
+
+categories
+- _id 
+- name 
+- slug 
+
+ (Funcionarios) 
+- _ id
+- name 
+- setor 
+- dataNascimento
+- cpf 
+
+ Orcamentos
+- _id 
+- valorOrcamento
+- produtos
+
+Agendamento
+- _id
+- DataAgendamento
+- NomeDoSolicitante
+
+Estoque
+- _id 
+- nomeProduto
+- quantidadeDeProdutos
+
+- Servicos
+- _id 
+- idUser
+- nomeVeiculo
+- images [{url, default: true}]
+- dateCreated
+- categoria
+- preco
+- precoComDesconto: true
+- Descricao
+- status
+
+produto -> faz parte da categoria 
+- _id 
+- nomeDoProduto
+- valorDoProduto
