@@ -2,10 +2,11 @@ import { Component, OnInit } from "@angular/core";
 
 @Component({
   selector: "app-icons",
-  templateUrl: "icons.component.html"
+  templateUrl: "cadastro.component.html"
 })
-export class IconsComponent implements OnInit {
+export class CadastroComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {}
 }
+

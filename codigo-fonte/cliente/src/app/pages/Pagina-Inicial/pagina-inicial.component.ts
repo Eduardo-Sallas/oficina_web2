@@ -3,9 +3,9 @@ import Chart from 'chart.js';
 
 @Component({
   selector: "app-dashboard",
-  templateUrl: "dashboard.component.html"
+  templateUrl: "pagina-inicial.component.html"
 })
-export class DashboardComponent implements OnInit {
+export class PaginaInicialComponent implements OnInit {
   public canvas : any;
   public ctx;
   public datasets: any;

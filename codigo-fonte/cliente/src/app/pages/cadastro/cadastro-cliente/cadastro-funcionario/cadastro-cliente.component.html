@@ -1,0 +1,60 @@
+
+<div class=" content">
+  <div class=" row">
+    <div class=" col-md-12">
+      <div class=" card">
+        <div class=" card-header">
+          <h5 style="color: black; text-align: center; padding-bottom: 15px;">Cadastrar Cliente</h5>
+        </div>
+      </div>
+
+      <!--Form para cadastrar funcionário-->
+      <div class="card">
+        <div class="card-header p-3 mb-2 bg-dark text-white">
+
+          <form class="needs-validation" novalidate>
+            <div class="form-row">
+
+              <div class="col-md-4 mb-3">
+                <label for="validationCustom01">Nome:</label>
+                <input type="text" class="form-control" id="validationCustom01" placeholder="Digite o nome do Funcionário"  required>
+              </div>
+
+              <div class="col-md-4 mb-3">
+                <label for="validationCustom02">Sobrenome:</label>
+                <input type="text" class="form-control" id="validationCustom02" placeholder="Digite o sobrenome"  required>
+              </div>
+
+              <div class="col-md-3 mb-3">
+                <label for="validationCustom03">E-mail:</label>
+                <input type="email" class="form-control" id="validationCustom03" placeholder="exemplo@exemplo.com" required>
+              </div>
+
+            </div>
+
+            
+            <div class="form-row">
+              <div class="col-md-3 mb-3">
+                <label for="validationCustom04">CPF</label>
+                <input type="text" class="form-control cpf-mask" id="validationCustom04" placeholder="CPF" required>
+              </div>
+
+
+            </div>
+            
+
+            <div class="col-md-12 fundo" align="center">
+            <button type="button" class="btn btn-secondary btn-lg">Cadastrar</button>
+            <button type="button" class="btn btn-secondary btn-lg" style="margin-left: 10px;">Limpar</button>
+          </div>
+          </form>
+          
+          
+      </div>
+    </div>
+    <div class="col-md-12 fundo" align="center">
+
+      <a routerLink="/cadastro" class="btn btn-secondary btn-lg">Voltar</a>
+    </div>
+  </div>
+</div>
