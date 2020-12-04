@@ -9,7 +9,7 @@ import { LoginComponent } from './pages/login/login.component';
 
 const routes: Routes = [
   {
-    path: "login",
+    path: "",
     component: LoginComponent,
     pathMatch: "full"
   },
@@ -40,7 +40,7 @@ const routes: Routes = [
   },
   {
     path: "**",
-    redirectTo: "paginaInicial"
+    redirectTo: "login"
   }
 ];
 

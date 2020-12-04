@@ -17,7 +17,8 @@ import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { PaginaInicialComponent } from 'src/app/pages/Pagina-Inicial/pagina-inicial.component';
 import { CadastroComponent } from 'src/app/pages/cadastro/cadastro.component';
 import { CadastroFuncionarioComponent } from 'src/app/pages/cadastro/cadastro-funcionario/cadastro-funcionario.component';
-import { CadastroClienteComponent } from 'src/app/pages/cadastro/cadastro-cliente/cadastro-funcionario/cadastro-cliente.component';
+import { ListarClientesComponent } from 'src/app/pages/listar/listar-clientes/listar-clientes.component';
+import { CadastroClienteComponent } from 'src/app/pages/cadastro/cadastro-cliente/cadastro-cliente.component';
 
 @NgModule({
   imports: [
@@ -34,6 +35,7 @@ import { CadastroClienteComponent } from 'src/app/pages/cadastro/cadastro-client
     CadastroComponent,
     CadastroFuncionarioComponent,
     CadastroClienteComponent,
+    ListarClientesComponent,
     TypographyComponent,
     NotificationsComponent,
     MapComponent,

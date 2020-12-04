@@ -1,0 +1,153 @@
+
+<div class=" content">
+  <div class=" row">
+    <div class=" col-md-12">
+      <div class=" card">
+        <div class=" card-header">
+          <h5 style="color: black; text-align: center; padding-bottom: 15px;">Cadastrar Cliente</h5>
+        </div>
+      </div>------------------------------------------------------------+
+      .
+
+      <!--Form para cadastrar funcionário-->
+      <div class="card">
+        <div class="card-header p-3 mb-2 bg-dark text-white">
+
+          <form class="needs-validation" novalidate #formCadastroCliente="ngForm" (ngSubmit)="onSubmit(formCadastroCliente)">
+
+            <div class="form-row">
+              <div class="col-md-4 mb-3">
+                <label for="nomeCliente">Nome: *</label>
+                <input type="text" class="form-control"  id="nomeCliente" name="nomeCliente" 
+                [(ngModel)]="cliente.nome" placeholder="Digite o nome do Cliente" ngModel required #nomeDoCliente="ngModel">
+                <div class="alert alert-danger" role="alert" *ngIf="!nomeDoCliente.valid && nomeDoCliente.touched">
+                 O campo Nome é obrigatório
+                </div>
+              </div>
+
+              <div class="col-md-4 mb-3">
+                <label for="sobrenomeCliente">Sobrenome: *</label>
+                <input type="text" class="form-control" id="sobrenomeCliente" name="sobrenomeCliente" 
+                [(ngModel)]="cliente.sobrenome" placeholder="Digite o sobrenome" ngModel required #sobrenomeDoCliente="ngModel">
+                <div class="alert alert-danger" role="alert" *ngIf="!sobrenomeDoCliente.valid && sobrenomeDoCliente.touched">
+                  O campo Sobrenome é obrigatório
+                </div>
+              </div>
+
+              <div class="col-md-3 mb-3">
+                <label for="emailCliente">E-mail: *</label>
+                <input type="email" class="form-control" id="emailCliente" name="emailCliente" 
+                [(ngModel)]="cliente.email" placeholder="exemplo@exemplo.com" ngModel required email #emailDoCliente="ngModel">
+                <div class="alert alert-danger" role="alert" *ngIf="!emailDoCliente.valid && emailDoCliente.touched">
+                  O campo E-mail é obrigatório
+                </div>
+              </div>
+
+            </div>
+
+            
+            <div class="form-row">
+              <div class="col-md-3 mb-3">
+                <label for="cpfCliente">CPF: *</label>
+                <input type="text" class="form-control cpf-mask" id="cpfCliente" name="cpfCliente" 
+                [(ngModel)]="cliente.cpf" placeholder="CPF" ngModel required #cpfDoCliente="ngModel">
+                <div class="alert alert-danger" role="alert" *ngIf="!cpfDoCliente.valid && cpfDoCliente.touched">
+                 O campo CPF é obrigatório
+                </div>
+              </div>
+
+  
+                <div class="col-md-3 mb-3">
+                  <label for="telefoneCliente">Telefone: *</label>
+                  <input type="text" class="form-control cpf-mask" id="telefoneCliente" name="telefoneCliente" 
+                  [(ngModel)]="cliente.telefone" placeholder="Telefone" ngModel required #telefoneDoCliente="ngModel">
+                  <div class="alert alert-danger" role="alert" *ngIf="!telefoneDoCliente.valid && telefoneDoCliente.touched">
+                    Telefone é obrigatório
+                  </div>
+                </div>
+            </div>
+
+            <div class="form-row">
+              <div class="col-md-3 mb-3">
+                <label for="cepCliente">CEP:</label>
+                <input type="text" class="form-control cpf-mask" id="cepCliente" name="cepCliente" placeholder="CEP"
+                 ngModel>
+                 
+              </div>
+
+              <div class="col-md-3 mb-3">
+                <label for="numeroCepCliente">Numero: *</label>
+                <input type="text" class="form-control cpf-mask" id="numeroCepCliente" name="numeroCepCliente" 
+                placeholder="Numero" ngModel>
+              </div>
+
+              <div class="col-md-3 mb-3">
+                <label for="complementoCliente">Complemento: *</label>
+                <input type="text" class="form-control cpf-mask" id="complementoCliente" name="complementoCliente" 
+                [(ngModel)]="cliente.complemento" placeholder="Complemento" ngModel required #complementoDoCliente="ngModel">
+                <div class="alert alert-danger" role="alert" *ngIf="!complementoDoCliente.valid && complementoDoCliente.touched">
+                  Complemento é obrigatório
+                </div>
+              </div>
+
+            </div>
+
+            <div class="form-row">
+              
+                <div class="col-md-3 mb-3">
+                  <label for="ruaCliente">Rua: *</label>
+                  <input type="text" class="form-control cpf-mask" id="ruaCliente" name="ruaCliente" 
+                  [(ngModel)]="cliente.rua" placeholder="Rua" ngModel required #ruaDoCliente="ngModel">
+                  <div class="alert alert-danger" role="alert" *ngIf="!ruaDoCliente.valid && ruaDoCliente.touched">
+                   O campo Rua é obrigatório
+                  </div>
+                </div>
+
+              
+                <div class="col-md-3 mb-3">
+                  <label for="bairroCliente">Bairro: *</label>
+                  <input type="text" class="form-control cpf-mask" id="bairroCliente" name="bairroCliente" 
+                  [(ngModel)]="cliente.bairro" placeholder="Bairro" ngModel required #bairroDoCliente="ngModel">
+                  <div class="alert alert-danger" role="alert" *ngIf="!bairroDoCliente.valid && bairroDoCliente.touched">
+                    O campo Bairro é obrigatório
+                   </div>
+                </div>
+
+                <div class="col-md-3 mb-3">
+                  <label for="municipioCliente">Municipio: *</label>
+                  <input type="text" class="form-control cpf-mask" id="municipioCliente" name="municipioCliente" 
+                  [(ngModel)]="cliente.municipio"placeholder="Municipio" ngModel required #municipioDoCliente="ngModel">
+                  <div class="alert alert-danger" role="alert" *ngIf="!municipioDoCliente.valid && municipioDoCliente.touched">
+                    O campo Município é obrigatório
+                   </div>
+                </div>
+
+               
+                  <div class="col-md-3 mb-3">
+                    <label for="estadoCliente">Estado: *</label>
+                    <input type="text" class="form-control cpf-mask" id="estadoCliente" name="estadoCliente" 
+                    [(ngModel)]="cliente.estado" placeholder="Estado" ngModel required #estadoDoCliente="ngModel">
+                    <div class="alert alert-danger" role="alert" *ngIf="!estadoDoCliente.valid && estadoDoCliente.touched">
+                      O campo Estado é obrigatório
+                     </div>
+                  </div>
+
+    
+            </div>
+            
+
+            <div class="col-md-12 fundo" align="center">
+            <button type="submit" (click)="cadastrarCliente()" [disabled]="!formCadastroCliente.valid" class="btn btn-secondary btn-lg">Cadastrar</button>
+            <button type="submit" class="btn btn-secondary btn-lg" style="margin-left: 10px;">Limpar</button>
+          </div>
+          </form>
+          
+      </div>
+    </div>
+
+    <div class="col-md-12 fundo" align="center">
+      <a routerLink="/cadastro" class="btn btn-secondary btn-lg">Voltar</a>
+    </div>
+
+  </div>
+</div>

@@ -19,8 +19,8 @@
 						ADM Oficina Paulo Coco
 					</span>
 
-					<div class="wrap-input100 validate-input" data-validate = "É necessário digitar o E-mail: ex@abc.xyz">
-						<input class="input100" type="text" name="email" placeholder="E-mail">
+					<div class="wrap-input100 validate-input" data-validate = "É necessário digitar o Usuário">
+						<input [(ngModel)]="usuario.nome" class="input100" type="text" name="text" placeholder="Usuário" required>
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
 							<i class="fa fa-envelope" aria-hidden="true"></i>
@@ -28,7 +28,7 @@
 					</div>
 
 					<div class="wrap-input100 validate-input" data-validate = "É obrigatório digitar a senha">
-						<input class="input100" type="password" name="pass" placeholder="Digite sua senha">
+						<input [(ngModel)]="usuario.senha" class="input100" type="password" name="pass" placeholder="Digite sua senha" required>
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
 							<i class="fa fa-lock" aria-hidden="true"></i>
@@ -36,7 +36,7 @@
 					</div>
 					
 					<div class="container-login100-form-btn">
-						<button class="login100-form-btn">
+						<button type="submit" (click)="fazerLogin()" class="login100-form-btn">
 							Acessar
 						</button>
 					</div>

@@ -14,6 +14,8 @@ import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { AppRoutingModule } from "./app-routing.module";
 import { ComponentsModule } from "./components/components.module";
 import { LoginComponent } from './pages/login/login.component';
+import { ListarClientesService } from './pages/listar/listar-clientes/listar-clientes.service';
+import { AuthService } from './pages/login/auth.service';
 
 
 
@@ -29,7 +31,8 @@ import { LoginComponent } from './pages/login/login.component';
     ToastrModule.forRoot()
   ],
   declarations: [AppComponent, AdminLayoutComponent, AuthLayoutComponent, LoginComponent],
-  providers: [],
+  
+  providers: [ListarClientesService, HttpClientModule, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

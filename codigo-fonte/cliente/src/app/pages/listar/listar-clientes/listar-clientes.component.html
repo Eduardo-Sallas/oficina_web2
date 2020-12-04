@@ -1,0 +1,50 @@
+<div class=" content">
+  <div class=" row">
+    <div class=" col-md-12">
+      <div class=" card">
+        <div class=" card-header">
+          <h5 style="color: black; text-align: center; padding-bottom: 15px;">Clientes Cadastrados</h5>
+        </div>
+      </div>
+
+      <div class="table-responsive">
+<table class="table">
+    <thead  class="thead-light" style="text-align: center;">
+      <tr>
+        <th scope="col">#id</th>
+        <th scope="col">Nome</th>
+        <th scope="col">Sobrenome</th>
+        <th scope="col">E-mail</th>
+        <th scope="col">Telefone</th>
+        <th scope="col">Rua</th>
+        <th scope="col">Bairro</th>
+        <th scope="col">Estado</th>
+        <th scope="col">Município</th>
+        <th scope="col">Complemento</th>
+        <th scope="col">Data de Criação</th>
+
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let cliente of clientes">
+        <td>{{ cliente._id }}</td>
+        <td>{{ cliente.nome }}</td>
+        <td>{{ cliente.sobrenome }}</td>
+        <td>{{ cliente.email }}</td>
+        <td>{{ cliente.telefone }}</td>
+        <td>{{ cliente.rua }}</td>
+        <td>{{ cliente.bairro }}</td>
+        <td>{{ cliente.estado }}</td>
+        <td>{{ cliente.municipio }}</td>
+        <td>{{ cliente.complemento }}</td>
+        <td>{{ cliente.created_at | date: 'dd/MM/yyyy' }}</td>
+        
+      </tr>
+
+    </tbody>
+  </table>
+</div>
+
+    </div>
+  </div>
+</div>

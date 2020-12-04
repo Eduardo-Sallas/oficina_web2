@@ -8,14 +8,16 @@ import { TablesComponent } from "../../pages/tables/tables.component";
 import { TypographyComponent } from "../../pages/typography/typography.component";
 import { CadastroComponent } from 'src/app/pages/cadastro/cadastro.component';
 import { CadastroFuncionarioComponent } from 'src/app/pages/cadastro/cadastro-funcionario/cadastro-funcionario.component';
-import { CadastroClienteComponent } from 'src/app/pages/cadastro/cadastro-cliente/cadastro-funcionario/cadastro-cliente.component';
+import { CadastroClienteComponent } from 'src/app/pages/cadastro/cadastro-cliente/cadastro-cliente.component';
+import { ListarClientesComponent } from 'src/app/pages/listar/listar-clientes/listar-clientes.component';
 
 // import { RtlComponent } from "../../pages/rtl/rtl.component";
 
 export const AdminLayoutRoutes: Routes = [
   { path: "paginaInicial", component: PaginaInicialComponent },
-  { path: "cadastroFuncionario", component: CadastroFuncionarioComponent },
-  { path: "cadastroCliente", component: CadastroClienteComponent },
+  { path: "cadastrarFuncionario", component: CadastroFuncionarioComponent },
+  { path: "cadastrarCliente", component: CadastroClienteComponent },
+  { path: "listarClientes", component: ListarClientesComponent},
   { path: "cadastro", component: CadastroComponent },
   { path: "maps", component: MapComponent },
   { path: "notifications", component: NotificationsComponent },

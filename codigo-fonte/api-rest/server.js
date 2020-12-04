@@ -1,34 +1,34 @@
-require('dotenv').config();
+// associando as dependências instaladas
 const express = require('express');
-const mongoose = require('mongoose');
-const cors = require('cors');
-const fileupload = require('express-fileupload');
+ const app = express();
+ const cors = require('cors');
+ 
+ port = process.env.PORT || 3000,
+ mongoose = require('mongoose');
 
-const apiRoutes = require('./src/routes');
+ Funcionario = require('./api/models/funcionarioModel');
+ Cliente = require('./api/models/clienteModel');
+ Produto = require('./api/models/produtoModel');
+ Orcamento = require('./api/models/orcamentoModel');
+ Agendamento = require('./api/models/agendamentoModel');
+ Servico = require('./api/models/servicoModel');
+ Estoque = require('./api/models/estoqueModel');
 
-mongoose.connect(process.env.DATABASE, {
-    useNewUrlParser: true,
-    useFindAndModify: false,
-    useUnifiedTopology: true
-});
+ bodyParser = require('body-parser');
 
-mongoose.Promise = global.Promise;
-mongoose.connection.on('error', (error) => {
-    console.log("Erro: ", error.message);
-});
+ const routes = require('./api/routes/routes');
 
-const server = express();
 
-server.use(cors()); // permite receber requisições de qualquer lugar
-server.use(express.json());
-server.use(express.urlencoded({extended: true}));
-server.use(fileupload());
+ // mongoose
+ mongoose.Promisse = global.Promise;
+ mongoose.connect('mongodb://localhost:27017/OficinaWebAPI', { useNewUrlParser:true , useUnifiedTopology: true});
 
-server.use(express.static(__dirname+'/public'));
+app.use(bodyParser.urlencoded( { extended: true } ));
+app.use(bodyParser.json());
+app.use(cors());
 
-server.use('/', apiRoutes);
+app.use('/api', routes);
 
-server.listen(process.env.PORT, ()=> {
-    console.log(` - Rodando no endereço: ${process.env.BASE}`);
-});
-
+// Escutar a porta
+ app.listen(port);
+ console.log('Restfull API server started on: ' + port);

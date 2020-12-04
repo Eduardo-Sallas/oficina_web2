@@ -1,0 +1,15 @@
+-------------------------------------------BACK-END----------------------------------------------------------
+NODE: Ambiente completo para execução de JS no backend (server-side),
+
+EXPRESS: Conjunto de features pro Node, utilizado inclusive na construção da API
+
+MONGOOSE: Auxilia na conexão com o MongoDB
+
+API - Application Programming Interface
+
+
+-------------------------------------------FRONT-END----------------------------------------------------------
+
+ANGULAR:
+
+BOOTSTRAP:
