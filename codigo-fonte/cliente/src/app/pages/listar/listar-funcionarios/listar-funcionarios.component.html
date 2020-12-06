@@ -1,0 +1,39 @@
+<div class=" content">
+    <div class=" row">
+      <div class=" col-md-12">
+        <div class=" card">
+          <div class=" card-header">
+            <h5 style="color: black; text-align: center; padding-bottom: 15px;">Funcionarios Cadastrados</h5>
+          </div>
+        </div>
+  
+        <div class="table-responsive">
+  <table class="table">
+      <thead  class="thead-light" style="text-align: center;">
+        <tr>
+          <th scope="col">Nome</th>
+          <th scope="col">Setor</th>
+          <th scope="col">Data de Nascimento</th>
+          <th scope="col">CPF:</th>
+
+  
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let funcionario of funcionarios">
+          <td>{{ funcionario.nome}}</td>
+          <td>{{ funcionario.setor }}</td>
+          <td>{{ funcionario.dataNascimento | date: 'dd/MM/yyyy' }}</td>
+          <td>{{ funcionario.cpf }}</td>
+
+          
+        </tr>
+  
+      </tbody>
+    </table>
+  </div>
+  
+      </div>
+    </div>
+  </div>
+  

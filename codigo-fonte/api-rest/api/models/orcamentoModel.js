@@ -9,10 +9,26 @@ const OrcamentoSchema = new Schema ({
         required: 'O valor do Orçamento é obrigatório'
     },
 
-    produtos: {
+    solicitacao: {
         type: String,
-        required: 'Os produdos do Orçamento é obrigatório'
+        required: 'O tipo de solicitacao do Orçamento é obrigatório'
     },
+
+    servicoDesejado: {
+        type: String,
+        required: 'O serviço desejado pelo cliente é obrigatório'
+    },
+
+    nomeCliente: {
+        type: String,
+        required: 'O nome do cliente é obrigatório'
+    
+    },
+
+    tipoVeiculo: {
+        type: String,
+        required: 'O tipo de veículo é obrigatório'
+    }
 
 
 });

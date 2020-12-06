@@ -18,8 +18,10 @@ exports.criar_orcamento = function(req,res){
     novo_orcamento.save(function(err, orcamentos) {
             if(err){
             res.send(err);
-        }
+        } else{
         res.json(orcamentos);
+        console.log('Orçamento cadastrado com Sucesso!');
+    }
     });
 }
 

@@ -19,8 +19,10 @@ exports.criar_funcionario = function(req,res){
     novo_funcionario.save(function(err, funcionario) {
             if(err){
             res.send(err);
-        }
+        } else {
+        console.log('Funcionario Cadastrado com Sucesso')
         res.json(funcionario);
+    }
     });
 }
 

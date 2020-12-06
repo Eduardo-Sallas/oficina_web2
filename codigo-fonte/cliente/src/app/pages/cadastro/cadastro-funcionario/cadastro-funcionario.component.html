@@ -4,30 +4,44 @@
     <div class=" col-md-12">
       <div class=" card">
         <div class=" card-header">
-          <h5 style="color: black; text-align: center; padding-bottom: 15px;">Cadastrar Funcionário</h5>
+          <h5 style="color: black; text-align: center; padding-bottom: 15px;">Cadastrar Funcionario</h5>
         </div>
-      </div>
+      </div>------------------------------------------------------------+
+      .
 
       <!--Form para cadastrar funcionário-->
       <div class="card">
         <div class="card-header p-3 mb-2 bg-dark text-white">
 
-          <form class="needs-validation" novalidate>
-            <div class="form-row">
+          <form class="needs-validation" novalidate #formCadastroFuncionario="ngForm" (ngSubmit)="onSubmit(formCadastroFuncionario)">
 
+            <div class="form-row">
               <div class="col-md-4 mb-3">
-                <label for="validationCustom01">Nome:</label>
-                <input type="text" class="form-control" id="nomeFuncionario" placeholder="Digite o nome do Funcionário"  required>
+                <label for="nomeFuncionario">Nome: *</label>
+                <input type="text" class="form-control"  id="nomeFuncionario" name="nomeFuncionario" 
+                [(ngModel)]="funcionario.nome" placeholder="Digite o nome do Funcionario" ngModel required #nomeDoFuncionario="ngModel">
+                <div class="alert alert-danger" role="alert" *ngIf="!nomeDoFuncionario.valid && nomeDoFuncionario.touched">
+                 O campo Nome é obrigatório
+                </div>
               </div>
 
               <div class="col-md-4 mb-3">
-                <label for="validationCustom02">Sobrenome:</label>
-                <input type="text" class="form-control" id="sobrenomeFuncionario" placeholder="Digite o sobrenome"  required>
+                <label for="setorFuncionario">Setor: *</label>
+                <input type="text" class="form-control" id="setorFuncionario" name="setorFuncionario" 
+                [(ngModel)]="funcionario.setor" placeholder="Digite o Setor" ngModel required #setorDoFuncionario="ngModel">
+                <div class="alert alert-danger" role="alert" *ngIf="!setorDoFuncionario.valid && setorDoFuncionario.touched">
+                  O campo Setor é obrigatório
+                </div>
               </div>
 
               <div class="col-md-3 mb-3">
-                <label for="validationCustom03">Data de Nascimento:</label>
-                <input type="date" class="form-control" id="dataNascimentoFuncionario" placeholder="Data de Nascimento" required>
+                <label for="dataNascimentoFuncionario">E-mail: *</label>
+                <input type="date" class="form-control" id="dataNascimentoFuncionario" name="dataNascimentoFuncionario" 
+                [(ngModel)]="funcionario.dataNascimento" ngModel required  #dataNascimentoDoFuncionario="ngModel">
+                <div class="alert alert-danger" role="alert" 
+                *ngIf="!dataNascimentoDoFuncionario.valid && dataNascimentoDoFuncionario.touched">
+                  O campo Data de Nascimento é obrigatório
+                </div>
               </div>
 
             </div>
@@ -35,36 +49,31 @@
             
             <div class="form-row">
               <div class="col-md-3 mb-3">
-                <label for="validationCustom04">CPF</label>
-                <input type="text" class="form-control cpf-mask" id="cpfFuncionario" placeholder="CPF" required>
+                <label for="cpfDoFuncionario">CPF: *</label>
+                <input type="text" class="form-control cpf-mask" id="cpfDoFuncionario" name="cpfDoFuncionario" 
+                [(ngModel)]="funcionario.cpf" placeholder="CPF" ngModel required #cpfDoFuncionario="ngModel">
+                <div class="alert alert-danger" role="alert" *ngIf="!cpfDoFuncionario.valid && cpfDoFuncionario.touched">
+                 O campo CPF é obrigatório
+                </div>
               </div>
-
-              <div class="col-md-3 mb-3">
-                <label for="exampleFormControlSelect1">Setor:</label>
-                <select class="form-control" id="setorFuncionario">
-                  <option>Financeiro</option>
-                  <option>Vendas</option>
-                  <option>Logística</option>
-                  <option>Automobilística</option>
-                  <option>Tecnologia da Informação</option>
-                </select>
-              </div>
-
             </div>
+
+          
+ 
             
 
             <div class="col-md-12 fundo" align="center">
-            <button type="button" class="btn btn-secondary btn-lg">Cadastrar</button>
-            <button type="button" class="btn btn-secondary btn-lg" style="margin-left: 10px;">Limpar</button>
+            <button type="submit" (click)="cadastrarFuncionario()" [disabled]="!formCadastroFuncionario.valid" class="btn btn-secondary btn-lg">Cadastrar</button>
+            <button type="submit" class="btn btn-secondary btn-lg" style="margin-left: 10px;">Limpar</button>
           </div>
           </form>
           
-          
       </div>
     </div>
-    <div class="col-md-12 fundo" align="center">
 
+    <div class="col-md-12 fundo" align="center">
       <a routerLink="/cadastro" class="btn btn-secondary btn-lg">Voltar</a>
     </div>
+
   </div>
 </div>

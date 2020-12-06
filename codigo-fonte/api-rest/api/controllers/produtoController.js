@@ -18,8 +18,10 @@ exports.criar_produto = function(req,res){
     novo_produto.save(function(err, produto) {
             if(err){
             res.send(err);
-        }
+        } else {
         res.json(produto);
+        console.log('Produto Cadastrado com Sucesso!');
+    }
     });
 }
 

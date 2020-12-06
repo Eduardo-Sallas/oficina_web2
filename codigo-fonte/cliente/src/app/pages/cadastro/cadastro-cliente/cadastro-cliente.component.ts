@@ -10,7 +10,7 @@ import { CadastroClienteService } from './cadastro-cliente.service';
 export class CadastroClienteComponent implements OnInit {
 
   cliente: ClienteModel = new ClienteModel();
-
+  
   onSubmit(form) {
     console.log(form);
   }
@@ -19,15 +19,20 @@ export class CadastroClienteComponent implements OnInit {
 
   ngOnInit() {}
 
+  
+
   cadastrarCliente() {
     console.log(this.cliente);
     this.cadastroClienteService.cadastrarClientes(this.cliente).subscribe(cliente => {
       this.cliente = new ClienteModel();
       this.listarCliente.ListarClientes();
+      alert('Cliente cadastrado com sucesso!')
 
      
     }, 
-      err => {console.log('Erro ao cadastrar Cliente')
+      err => {
+        console.log('Erro ao cadastrar Cliente');
+        alert('Erro ao cadastrar Cliente!');
     });
   }
 

@@ -20,7 +20,7 @@ const FuncionarioSchema = new Schema ({
     },
 
     dataNascimento: {
-        type: String,
+        type: Date,
         required: 'A Data de Nascimento do Funcionário é obrigatório'
     },
 

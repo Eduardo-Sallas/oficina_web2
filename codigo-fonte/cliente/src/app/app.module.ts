@@ -16,6 +16,14 @@ import { ComponentsModule } from "./components/components.module";
 import { LoginComponent } from './pages/login/login.component';
 import { ListarClientesService } from './pages/listar/listar-clientes/listar-clientes.service';
 import { AuthService } from './pages/login/auth.service';
+import { ListarFuncionariosService } from './pages/listar/listar-funcionarios/listar-funcionarios.service';
+import { BrowserModule } from '@angular/platform-browser';
+import { CommonModule } from '@angular/common';
+import { ListarProdutosService } from './pages/listar/listar-produtos/listar-produtos.service';
+
+
+
+
 
 
 
@@ -28,11 +36,13 @@ import { AuthService } from './pages/login/auth.service';
     NgbModule,
     RouterModule,
     AppRoutingModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    BrowserModule,
+    CommonModule
   ],
-  declarations: [AppComponent, AdminLayoutComponent, AuthLayoutComponent, LoginComponent],
+  declarations: [AppComponent, AdminLayoutComponent, AuthLayoutComponent, LoginComponent ],
   
-  providers: [ListarClientesService, HttpClientModule, AuthService],
+  providers: [ListarClientesService, HttpClientModule, AuthService, ListarFuncionariosService, ListarProdutosService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

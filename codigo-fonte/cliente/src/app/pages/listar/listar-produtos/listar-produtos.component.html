@@ -1,0 +1,33 @@
+<div class=" content">
+    <div class=" row">
+      <div class=" col-md-12">
+        <div class=" card">
+          <div class=" card-header">
+            <h5 style="color: black; text-align: center; padding-bottom: 15px;">Produtos Cadastrados</h5>
+          </div>
+        </div>
+  
+        <div class="table-responsive">
+  <table class="table">
+      <thead  class="thead-light" style="text-align: center;">
+        <tr>
+          <th scope="col">Nome Do Produto</th>
+          <th scope="col">Valor do Produto</th>
+
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let produto of produtos">
+          <td>{{ produto.nomeDoProduto}}</td>
+          <td>{{ produto.valorDoProduto |  currency:'BRL'}}</td>
+          
+        </tr>
+  
+      </tbody>
+    </table>
+  </div>
+  
+      </div>
+    </div>
+  </div>
+  

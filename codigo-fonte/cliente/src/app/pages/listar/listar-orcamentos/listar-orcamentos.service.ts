@@ -1,16 +1,15 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
-export class UsuarioService {
-
-  SERVER_URL = 'http://localhost:5000';
+export class ListarOrcamentosService {
 
   constructor(private http: HttpClient) { }
 
-  public getUsuarios() {
-    return this.http.get(`${this.SERVER_URL}/states`);
+  ListarOrcamentos() : Observable<any> {
+    return this.http.get("http://localhost:3000/api/orcamentos")
   }
 }
