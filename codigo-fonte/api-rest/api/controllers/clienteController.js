@@ -43,17 +43,21 @@ exports.atualizar_cliente = function(req, res){
     Cliente.findByIdAndUpdate({_id: req.params.clienteId}, req.body, {new: true}, function(err, cliente) {
         if(err){
             res.send(err);
+            console.log('Erro ao atualizar cliente', err);
         }
         res.json(cliente);
+        console.log('Cliente atualizado com sucesso', cliente);
     });
 }
 
 // DELETE - Remover um Cliente existente
 exports.remover_cliente = function(req, res){
-    Funcionario.remove({_id: req.params.clienteId},function(err, cliente) {
+    Cliente.remove({_id: req.params.clienteId},function(err, cliente) {
         if(err){
             res.send(err);
+            console.log('Erro ao remover Cliente', err);
         }
         res.json( {message: 'Cliente removido com sucesso'} );
+        console.log('Cliente removido com sucesso');
     });
 }

@@ -12,6 +12,8 @@ export class ListarClientesComponent implements OnInit {
   cliente: ClienteModel = new ClienteModel();
   clientes: Array<any> = new Array();
 
+  pegaId: any;
+
   onSubmit(form) {
     console.log(form);
   }
@@ -24,7 +26,8 @@ export class ListarClientesComponent implements OnInit {
   }
 
   atualizarCliente(id: any) {
-    this.clientesService.atualizarCliente(id, this.cliente).subscribe(_cliente => {
+    this.clientesService.atualizarCliente(this.pegaId, this.cliente).subscribe(_cliente => {
+  
       this.cliente = new ClienteModel();
       this.listarAllClientes();
       console.log(this.listarAllClientes());

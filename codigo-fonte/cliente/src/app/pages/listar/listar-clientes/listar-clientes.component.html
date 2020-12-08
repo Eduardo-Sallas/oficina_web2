@@ -11,7 +11,7 @@
 <table class="table">
     <thead  class="thead-light" style="text-align: center;">
       <tr>
-        <th scope="col">#id</th>
+
         <th scope="col">Nome</th>
         <th scope="col">Sobrenome</th>
         <th scope="col">E-mail</th>
@@ -30,7 +30,7 @@
     </thead>
     <tbody>
       <tr *ngFor="let cliente of clientes">
-        <td>{{ cliente._id }}</td>
+
         <td>{{ cliente.nome }}</td>
         <td>{{ cliente.sobrenome }}</td>
         <td>{{ cliente.email }}</td>
@@ -43,18 +43,22 @@
         <td>{{ cliente.created_at | date: 'dd/MM/yyyy' }}</td>
 
 
+ 
+
+
         <td>
-          <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#modalExemplo" >
+          <button type="button" class="btn btn-info btn-sm" data-toggle="modal" (click)="pegaId = cliente._id"  data-target="#modalExemplo" >
             Editar
           </button>
         </td>
-
 
         <td>
           <button type="button" class="btn btn-danger btn-sm" (click)="removerCliente(cliente._id)">
            Remover
           </button>
         </td>
+
+ 
       </tr>
 
 
@@ -74,10 +78,10 @@
               (ngSubmit)="onSubmit(formAtualizarCliente)">
                 
 
-              <div class="form-group">
+              <div class="form-group" hidden>
                 <label for="idCliente">ID: </label>
-                <input type="text" class="form-control"  id="idCliente" name="idCliente" 
-                 value="{{cliente._id}}" placeholder="Digite o ID do Cliente" ngModel #idCliente="ngModel">
+                <input type="text" class="form-control"  id="idCliente" name="idCliente" [readonly]="true"
+                [(ngModel)]="pegaId" value="pegaId" placeholder="Digite o ID do Cliente" ngModel #idCliente="ngModel">
               </div>
 
 
