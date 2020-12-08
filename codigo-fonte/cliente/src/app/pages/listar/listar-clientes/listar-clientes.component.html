@@ -22,6 +22,9 @@
         <th scope="col">Município</th>
         <th scope="col">Complemento</th>
         <th scope="col">Data de Criação</th>
+        <th scope="col">Ações</th>
+        <th scope="col"></th>
+
 
       </tr>
     </thead>
@@ -38,13 +41,127 @@
         <td>{{ cliente.municipio }}</td>
         <td>{{ cliente.complemento }}</td>
         <td>{{ cliente.created_at | date: 'dd/MM/yyyy' }}</td>
-        
+
+
+        <td>
+          <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#modalExemplo" >
+            Editar
+          </button>
+        </td>
+
+
+        <td>
+          <button type="button" class="btn btn-danger btn-sm" (click)="removerCliente(cliente._id)">
+           Remover
+          </button>
+        </td>
       </tr>
+
+
+      <div class="modal fade" id="modalExemplo" tabindex="-1" 
+      role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" >
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Editar Cliente</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body" >              
+              <!--FORM PARA EDITAR O CLIENTE-->
+              <form form class="needs-validation" novalidate #formAtualizarCliente="ngForm" 
+              (ngSubmit)="onSubmit(formAtualizarCliente)">
+                
+
+              <div class="form-group">
+                <label for="idCliente">ID: </label>
+                <input type="text" class="form-control"  id="idCliente" name="idCliente" 
+                 value="{{cliente._id}}" placeholder="Digite o ID do Cliente" ngModel #idCliente="ngModel">
+              </div>
+
+
+             
+
+                <div class="form-group">
+                <label for="nomeCliente">Nome: </label>
+                <input type="text" class="form-control"  id="nomeCliente" name="nomeCliente" 
+                [(ngModel)]="cliente.nome" placeholder="Digite o Nome do Cliente" ngModel #nomeDoCliente="ngModel">
+              </div>
+
+
+              <div class="form-group">
+                <label for="sobrenomeCliente">Sobrenome: </label>
+                <input type="text" class="form-control"  id="sobrenomeCliente" name="sobrenomeCliente" 
+                [(ngModel)]="cliente.sobrenome" placeholder="Digite o Sobrenome do Cliente" ngModel #sobrenomeCliente="ngModel">
+              </div>
+
+              <div class="form-group">
+                <label for="cpfCliente">CPF: </label>
+                <input type="text" class="form-control"  id="cpfCliente" name="cpfCliente" 
+                [(ngModel)]="cliente.cpf" placeholder="Digite o CPF do Cliente" ngModel #cpfCliente="ngModel">
+              </div>
+
+
+              <div class="form-group">
+                <label for="emailCliente">Email: </label>
+                <input type="email" class="form-control"  id="emailCliente" name="emailCliente" 
+                [(ngModel)]="cliente.email" placeholder="Digite o E-mail do Cliente" ngModel #emailCliente="ngModel">
+              </div>
+
+              <div class="form-group">
+                <label for="ruaCliente">Rua: </label>
+                <input type="text" class="form-control"  id="ruaCliente" name="ruaCliente" 
+                [(ngModel)]="cliente.rua" placeholder="Digite a Rua do Cliente" ngModel #ruaCliente="ngModel">
+              </div>
+
+              <div class="form-group">
+                <label for="bairroCliente">Bairro: </label>
+                <input type="text" class="form-control"  id="bairroCliente" name="bairroCliente" 
+                [(ngModel)]="cliente.bairro" placeholder="Digite o Bairro do Cliente" ngModel #bairroCliente="ngModel">
+              </div>
+
+              <div class="form-group">
+                <label for="estadoCliente">Estado: </label>
+                <input type="text" class="form-control"  id="estadoCliente" name="estadoCliente" 
+                [(ngModel)]="cliente.estado" placeholder="Digite o Bairro do Cliente" ngModel #bairroCliente="ngModel">
+              </div>
+
+              <div class="form-group">
+                <label for="municipioCliente">Municipio: </label>
+                <input type="text" class="form-control"  id="bairroCliente" name="bairroCliente" 
+                [(ngModel)]="cliente.municipio" placeholder="Digite a rua do Cliente" ngModel #bairroCliente="ngModel">
+              </div>
+
+              <div class="form-group">
+                <label for="complementoCliente">Complemento: </label>
+                <input type="text" class="form-control"  id="complementoCliente" name="complementoCliente" 
+                [(ngModel)]="cliente.municipio" placeholder="Digite o complemento do Cliente" ngModel #complementoCliente="ngModel">
+              </div>
+
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
+                      <button type="submit" class="btn btn-dark" [disabled]="!formAtualizarCliente.valid" (click)="atualizarCliente(cliente._id)">Salvar Alterações</button>
+                    </div>
+
+       
+            </form>
+    
+            </div>
+ 
+          </div>
+        </div>
+      </div>
 
     </tbody>
   </table>
-</div>
 
+  
+  
+      </div>
     </div>
   </div>
+  
 </div>
+
+

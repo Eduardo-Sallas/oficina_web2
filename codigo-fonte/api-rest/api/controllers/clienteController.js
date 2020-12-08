@@ -38,9 +38,9 @@ exports.listar_cliente_por_id = function(req, res){
     });
 }
 
-// PUT - Atualizar os dados de um Funcionário existente
+// PUT - Atualizar os dados de um Cliente existente
 exports.atualizar_cliente = function(req, res){
-    Cliente.findOneAndUpdate({_id: req.params.clienteId}, req.body, {new: true}, function(err, cliente) {
+    Cliente.findByIdAndUpdate({_id: req.params.clienteId}, req.body, {new: true}, function(err, cliente) {
         if(err){
             res.send(err);
         }
@@ -48,7 +48,7 @@ exports.atualizar_cliente = function(req, res){
     });
 }
 
-// DELETE - Remover um funcionário existente
+// DELETE - Remover um Cliente existente
 exports.remover_cliente = function(req, res){
     Funcionario.remove({_id: req.params.clienteId},function(err, cliente) {
         if(err){

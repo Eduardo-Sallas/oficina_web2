@@ -14,12 +14,12 @@ import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { AppRoutingModule } from "./app-routing.module";
 import { ComponentsModule } from "./components/components.module";
 import { LoginComponent } from './pages/login/login.component';
-import { ListarClientesService } from './pages/listar/listar-clientes/listar-clientes.service';
 import { AuthService } from './pages/login/auth.service';
 import { ListarFuncionariosService } from './pages/listar/listar-funcionarios/listar-funcionarios.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
 import { ListarProdutosService } from './pages/listar/listar-produtos/listar-produtos.service';
+import { ClienteServiceService } from './services/cliente/cliente-service.service';
 
 
 
@@ -42,7 +42,7 @@ import { ListarProdutosService } from './pages/listar/listar-produtos/listar-pro
   ],
   declarations: [AppComponent, AdminLayoutComponent, AuthLayoutComponent, LoginComponent ],
   
-  providers: [ListarClientesService, HttpClientModule, AuthService, ListarFuncionariosService, ListarProdutosService],
+  providers: [HttpClientModule, AuthService, ListarFuncionariosService, ListarProdutosService, ClienteServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

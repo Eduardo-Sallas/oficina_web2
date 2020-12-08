@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
-import { ListarClientesService } from '../../listar/listar-clientes/listar-clientes.service';
+import { ClienteServiceService } from 'src/app/services/cliente/cliente-service.service';
 import { ClienteModel } from './cadastro-cliente.model';
-import { CadastroClienteService } from './cadastro-cliente.service';
+
 
 @Component({
   selector: "app-cadastro-cliente",
@@ -15,7 +15,7 @@ export class CadastroClienteComponent implements OnInit {
     console.log(form);
   }
 
-  constructor(private cadastroClienteService: CadastroClienteService, private listarCliente: ListarClientesService) {}
+  constructor(private clienteService: ClienteServiceService) {}
 
   ngOnInit() {}
 
@@ -23,9 +23,9 @@ export class CadastroClienteComponent implements OnInit {
 
   cadastrarCliente() {
     console.log(this.cliente);
-    this.cadastroClienteService.cadastrarClientes(this.cliente).subscribe(cliente => {
+    this.clienteService.cadastrarClientes(this.cliente).subscribe(cliente => {
       this.cliente = new ClienteModel();
-      this.listarCliente.ListarClientes();
+      this.clienteService.listarClientes();
       alert('Cliente cadastrado com sucesso!')
 
      
