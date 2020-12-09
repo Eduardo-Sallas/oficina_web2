@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
+import { FuncionarioService } from 'src/app/services/funcionario/funcionario.service';
 import { FuncionarioModel } from './cadastro-funcionario.model';
 
-import { CadastroFuncionarioService } from './cadastro-funcionario.service';
 
 @Component({
   selector: "app-cadastro-funcionarios",
@@ -12,7 +12,7 @@ export class CadastroFuncionarioComponent implements OnInit {
 
   funcionario: FuncionarioModel = new FuncionarioModel();
 
-  constructor(private funcionarioService: CadastroFuncionarioService, ) {}
+  constructor(private funcionarioService: FuncionarioService, ) {}
 
   onSubmit(form) {
     console.log(form);

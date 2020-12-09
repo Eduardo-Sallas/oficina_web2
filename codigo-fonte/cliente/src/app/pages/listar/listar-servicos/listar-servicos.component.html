@@ -1,54 +1,139 @@
+<div class=" content">
+  <div class=" row">
+    <div class=" col-md-12">
+      <div class=" card">
+        <div class=" card-header">
+          <h5 style="color: black; text-align: center; padding-bottom: 15px;">Serviços Cadastrados</h5>
+        </div>
+      </div>
 
-<div class="content">
-    <div class=" row">
-      <div class=" col-md-12">
-        <div class=" card">
-          <div class=" card-header">
-            <h5 style="color: black; text-align: center; padding-bottom: 15px;">Àrea de Cadastros </h5>
-          </div>
-        </div> <!--Aqui fecha a class card-->
+      <div class="table-responsive">
+<table class="table">
+    <thead  class="thead-light" style="text-align: center;">
+      <tr>
 
-        <div class="card-deck">
-            <div class="card">
-                <img class="card-img-top" src="../../../assets/img/colaborador.png" alt="Cadastrar Funcionário">
-                <div class="card-body">
-                  <h5 class="card-title">Listar Funcionários</h5>
-                  <p class="card-text">Clique no botão abaixo para listar os Funcionarios.</p>
-                  <a routerLink="/listarFuncionarios" class="btn btn-secondary">Listar Funcionários</a>
-                </div>
-              </div>
+        <th scope="col">Nome do Proprietário</th>
+        <th scope="col">Nome do Veículo</th>
+        <th scope="col">Ano do Veículo</th>
+        <th scope="col">Descrição do Serviço</th>
+        <th scope="col">Status do Serviço</th>
+        <th scope="col">Ações</th>
+        <th scope="col"></th>
 
-            <div class="card">
-              <img class="card-img-top" src="../../../assets/img/clientes.png" alt="Cadastrar Funcionário">
-              <div class="card-body">
-                <h5 class="card-title">Listar Clientes</h5>
-                <p class="card-text">Clique no botão abaixo para listar os Clientes.</p>
-                <a routerLink="/listarClientes" class="btn btn-secondary">Listar Clientes</a>
-              </div>
+
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let servico of servicos">
+
+        <td>{{ servico.nomeDoProprietario  }}</td>
+        <td>{{ servico.nomeDoVeiculo  }}</td>
+        <td>{{ servico.anoDoVeiculo  }}</td>
+        <td>{{ servico.descricaoDoServico  }}</td>
+        <td>{{ servico.statusDoServico  }}</td>
+        
+
+
+
+        <td>
+          <button type="button" class="btn btn-info btn-sm" data-toggle="modal" (click)="pegaId = servico._id"  data-target="#modalExemplo" >
+            Editar
+          </button>
+        </td>
+
+        <td>
+          <button type="button" class="btn btn-danger btn-sm" (click)="removerServico(servico._id)">
+           Remover
+          </button>
+        </td>
+
+ 
+      </tr>
+
+
+      <div class="modal fade" id="modalExemplo" tabindex="-1" 
+      role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" >
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Editar Serviço</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                <span aria-hidden="true">&times;</span>
+              </button>
             </div>
+            <div class="modal-body" >              
+              <!--FORM PARA EDITAR O SERVIÇO-->
+              <form form class="needs-validation" novalidate #formAtualizarServico="ngForm" 
+              (ngSubmit)="onSubmit(formAtualizarFuncionario)">
+                
 
-            <div class="card">
-                <img class="card-img-top" src="../../../assets/img/pecas.png" alt="Listar Produtos">
-                <div class="card-body">
-                  <h5 class="card-title">Listar Produtos</h5>
-                  <p class="card-text">Clique no botão abaixo para listar os Produtos.</p>
-                  <a routerLink="/listarProdutos" class="btn btn-secondary">Listar Produtos</a>
-                </div>
-              </div>  
-              
-              <div class="card">
-                <img class="card-img-top" src="../../../assets/img/orcamento.png" alt="Listar Orçamentos">
-                <div class="card-body">
-                  <h5 class="card-title">Listar Orçamentos</h5>
-                  <p class="card-text">Clique no botão abaixo para listar os Orçamentos.</p>
-                  <a routerLink="/listarOrcamentos" class="btn btn-secondary">Listar Orçamentos</a>
-                </div>
-              </div>     
+              <div class="form-group" hidden>
+                <label for="idServico">ID: </label>
+                <input type="text" class="form-control"  id="idServico" name="idServico" [readonly]="true"
+                [(ngModel)]="pegaId" value="pegaId" placeholder="Digite o ID do Serviço" ngModel #idServico="ngModel">
+              </div>
+
+
+             
+
+                <div class="form-group">
+                <label for="nomeProprietario">Nome do Proprietário: </label>
+                <input type="text" class="form-control"  id="nomeFuncionario" name="nomeFuncionario" 
+                [(ngModel)]="servico.nomeDoProprietario" placeholder="Digite o Nome do Proprietário" ngModel #nomeProprietario="ngModel">
+              </div>
+
+              <div class="form-group">
+                <label for="nomeVeiculo">Nome do Veículo: </label>
+                <input type="text" class="form-control"  id="nomeVeiculo" name="nomeVeiculo" 
+                [(ngModel)]="servico.nomeDoVeiculo" placeholder="Digite o Nome do Veículo" ngModel #nomeVeiculo="ngModel">
+              </div>
+
+
+              <div class="form-group">
+                <label for="anoVeiculo">Ano do Veículo: </label>
+                <input type="text" class="form-control"  id="anoVeiculo" name="anoVeiculo" 
+                [(ngModel)]="servico.anoDoVeiculo" placeholder="Digite o Ano do Veículo" ngModel #anoVeiculo="ngModel">
+              </div>
+
+              <div class="form-group">
+                <label for="descricaoServico">Descrição do Serviço: </label>
+                <input type="text" class="form-control"  id="descricaoServico" name="descricaoServico" 
+                [(ngModel)]="servico.descricaoDoServico" placeholder="Digite a Descrição do Serviço" ngModel #descricaoServico="ngModel">
+              </div>
+
+              <div class="form-group">
+                <label for="statusServico">Status do Serviço </label>
+                <input type="text" class="form-control"  id="statusServico" name="statusServico" 
+                [(ngModel)]="servico.statusDoServico" placeholder="Ex: Em andamento, Finalizado" ngModel #statusServico="ngModel">
+              </div>
+
+
+
+
+
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
+                      <button type="submit" class="btn btn-dark" [disabled]="!formAtualizarServico.valid" (click)="atualizarServico(servico._id)">Salvar Alterações</button>
+                    </div>
+
+       
+            </form>
+    
+            </div>
+ 
           </div>
+        </div>
+      </div>
 
+    </tbody>
+  </table>
+
+  
+  
       </div>
     </div>
   </div>
-
-  <router-outlet></router-outlet>
   
+</div>
+
+

@@ -47,14 +47,7 @@
 
             
             <div class="form-row">
-              <div class="col-md-3 mb-3">
-                <label for="cpfCliente">CPF: *</label>
-                <input type="text" class="form-control cpf-mask" id="cpfCliente" name="cpfCliente" 
-                [(ngModel)]="cliente.cpf" placeholder="CPF" ngModel required #cpfDoCliente="ngModel">
-                <div class="alert alert-danger" role="alert" *ngIf="!cpfDoCliente.valid && cpfDoCliente.touched">
-                 O campo CPF é obrigatório
-                </div>
-              </div>
+
 
   
                 <div class="col-md-3 mb-3">

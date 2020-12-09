@@ -27,6 +27,9 @@ const EstoqueController = require('../controllers/estoqueController');
 
 const ServicoController = require('../controllers/servicoController');
 
+// Rotas do Fornecedor
+
+const FornecedorController = require('../controllers/fornecedorController');
 
 router.get('/funcionarios', FuncionarioController.listar_todos_funcionarios); // listar todos funcionarios
 router.post('/funcionarios', FuncionarioController.criar_funcionario); // criar um funcionário
@@ -50,7 +53,7 @@ router.get('/produtos', ProdutoController.listar_todos_produtos);
 router.post('/produtos', ProdutoController.criar_produto);
 
 router.get('/produtos/:produtoId', ProdutoController.listar_produto_por_id);
-router.put('/protudos/:produtoId', ProdutoController.atualizar_produto);
+router.put('/produtos/:produtoId', ProdutoController.atualizar_produto);
 router.delete('/produtos/:produtoId', ProdutoController.remover_produto);
 
 
@@ -76,17 +79,25 @@ router.delete('/agendamentos/:agendamentoId', AgendamentoController.remover_agen
 router.get('/estoque', EstoqueController.listar_todos_produtos_do_estoque);
 router.post('/estoque', EstoqueController.criar_produto_no_estoque);
 
-router.get('estoque/:estoqueId', EstoqueController.listar_produto_por_id_no_estoque);
-router.put('estoque/:estoqueId', EstoqueController.atualizar_produto_no_Estoque);
-router.delete('estoque/:estoqueId', EstoqueController.remover_produto_do_estoque);
+router.get('/estoque/:produtoEstoqueId', EstoqueController.listar_produto_por_id_no_estoque);
+router.put('/estoque/:produtoEstoqueId', EstoqueController.atualizar_produto_no_Estoque);
+router.delete('/estoque/:produtoEstoqueId', EstoqueController.remover_produto_do_estoque);
 
 
 router.get('/servico', ServicoController.listar_todos_servicos);
 router.post('/servico', ServicoController.criar_servico);
 
-router.get('/servico', ServicoController.listar_servico_pelo_id);
-router.put('/servico', ServicoController.atualizar_servico);
-router.delete('/servico', ServicoController.remover_servico);
+router.get('/servico/:servicoId', ServicoController.listar_servico_pelo_id);
+router.put('/servico/:servicoId', ServicoController.atualizar_servico);
+router.delete('/servico/:servicoId', ServicoController.remover_servico);
+
+
+router.get('/fornecedor', FornecedorController.listar_todos_fornecedores);
+router.post('/fornecedor', FornecedorController.criar_fornecedor);
+
+router.get('/fornecedor/:fornecedorId', FornecedorController.listar_fornecedor_por_id);
+router.put('/fornecedor/:fornecedorId', FornecedorController.atualizar_fornecedor);
+router.delete('/fornecedor/:fornecedorId', FornecedorController.remover_fornecedor);
 
 
 module.exports = router;

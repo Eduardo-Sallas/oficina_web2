@@ -13,6 +13,7 @@ const express = require('express');
  Agendamento = require('./api/models/agendamentoModel');
  Servico = require('./api/models/servicoModel');
  Estoque = require('./api/models/estoqueModel');
+ Fornecedor = require('./api/models/fornecedorModel');
 
  bodyParser = require('body-parser');
 

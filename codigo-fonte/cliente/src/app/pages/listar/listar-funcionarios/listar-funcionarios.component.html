@@ -1,39 +1,131 @@
 <div class=" content">
-    <div class=" row">
-      <div class=" col-md-12">
-        <div class=" card">
-          <div class=" card-header">
-            <h5 style="color: black; text-align: center; padding-bottom: 15px;">Funcionarios Cadastrados</h5>
+  <div class=" row">
+    <div class=" col-md-12">
+      <div class=" card">
+        <div class=" card-header">
+          <h5 style="color: black; text-align: center; padding-bottom: 15px;">Funcionários Cadastrados</h5>
+        </div>
+      </div>
+
+      <div class="table-responsive">
+<table class="table">
+    <thead  class="thead-light" style="text-align: center;">
+      <tr>
+
+        <th scope="col">Nome</th>
+        <th scope="col">Setor</th>
+        <th scope="col">Data de Nascimento</th>
+        <th scope="col">CPF:</th>
+        <th scope="col">Ações</th>
+        <th scope="col"></th>
+
+
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let funcionario of funcionarios">
+
+        <td>{{ funcionario.nome }}</td>
+        <td>{{ funcionario.setor }}</td>
+        <td>{{ funcionario.dataNascimento | date: 'dd/MM/yyyy' }}</td>
+        <td>{{ funcionario.cpf }}</td>
+        
+
+
+
+        <td>
+          <button type="button" class="btn btn-info btn-sm" data-toggle="modal" (click)="pegaId = funcionario._id"  data-target="#modalExemplo" >
+            Editar
+          </button>
+        </td>
+
+        <td>
+          <button type="button" class="btn btn-danger btn-sm" (click)="removerFuncionario(funcionario._id)">
+           Remover
+          </button>
+        </td>
+
+ 
+      </tr>
+
+
+      <div class="modal fade" id="modalExemplo" tabindex="-1" 
+      role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" >
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Editar Funcionario</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body" >              
+              <!--FORM PARA EDITAR O FUNCIONÁRIO-->
+              <form form class="needs-validation" novalidate #formAtualizarFuncionario="ngForm" 
+              (ngSubmit)="onSubmit(formAtualizarFuncionario)">
+                
+
+              <div class="form-group" hidden>
+                <label for="idFuncionario">ID: </label>
+                <input type="text" class="form-control"  id="idFuncionario" name="idFuncionario" [readonly]="true"
+                [(ngModel)]="pegaId" value="pegaId" placeholder="Digite o ID do Funcionario" ngModel #idCliente="ngModel">
+              </div>
+
+
+             
+
+                <div class="form-group">
+                <label for="nomeFuncionario">Nome: </label>
+                <input type="text" class="form-control"  id="nomeFuncionario" name="nomeFuncionario" 
+                [(ngModel)]="funcionario.nome" placeholder="Digite o Nome do Cliente" ngModel #nomeFuncionario="ngModel">
+              </div>
+
+
+              <div class="form-group">
+                <label for="setorFuncionario">Setor: </label>
+                <input type="text" class="form-control"  id="sobrenomeCliente" name="sobrenomeCliente" 
+                [(ngModel)]="funcionario.setor" placeholder="Digite o Setor do Funcionario" ngModel #setorFuncionario="ngModel">
+              </div>
+
+              <div class="form-group">
+                <label for="dataNascimentoFuncionario">Data de Nascimento: </label>
+                <input type="text" class="form-control"  id="emailCliente" name="dataNascimentoFuncionario" 
+                [(ngModel)]="funcionario.dataNascimento" placeholder="Digite a Data de Nascimento" ngModel #emailCliente="ngModel">
+              </div>
+
+              <div class="form-group">
+                <label for="cpfFuncionario">CPF: </label>
+                <input type="text" class="form-control"  id="cpfFuncionario" name="cpfCliente" 
+                [(ngModel)]="funcionario.cpf" placeholder="Digite o CPF do Funcionário" ngModel #cpfFuncionario="ngModel">
+              </div>
+
+
+
+
+
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
+                      <button type="submit" class="btn btn-dark" [disabled]="!formAtualizarFuncionario.valid" (click)="atualizarFuncionario(funcionario._id)">Salvar Alterações</button>
+                    </div>
+
+       
+            </form>
+    
+            </div>
+ 
           </div>
         </div>
-  
-        <div class="table-responsive">
-  <table class="table">
-      <thead  class="thead-light" style="text-align: center;">
-        <tr>
-          <th scope="col">Nome</th>
-          <th scope="col">Setor</th>
-          <th scope="col">Data de Nascimento</th>
-          <th scope="col">CPF:</th>
+      </div>
+
+    </tbody>
+  </table>
 
   
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let funcionario of funcionarios">
-          <td>{{ funcionario.nome}}</td>
-          <td>{{ funcionario.setor }}</td>
-          <td>{{ funcionario.dataNascimento | date: 'dd/MM/yyyy' }}</td>
-          <td>{{ funcionario.cpf }}</td>
-
-          
-        </tr>
-  
-      </tbody>
-    </table>
-  </div>
   
       </div>
     </div>
   </div>
   
+</div>
+
+

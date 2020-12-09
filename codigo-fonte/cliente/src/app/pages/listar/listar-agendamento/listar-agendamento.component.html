@@ -1,0 +1,123 @@
+<div class=" content">
+  <div class=" row">
+    <div class=" col-md-12">
+      <div class=" card">
+        <div class=" card-header">
+          <h5 style="color: black; text-align: center; padding-bottom: 15px;">Agendamentos Cadastrados</h5>
+        </div>
+      </div>
+
+      <div class="table-responsive">
+<table class="table">
+    <thead  class="thead-light" style="text-align: center;">
+      <tr>
+
+        <th scope="col">Data de Agendamento</th>
+        <th scope="col">Nome do Solicitante</th>
+        <th scope="col">Descrição do Agendamento</th>
+        <th scope="col">Ações</th>
+        <th scope="col"></th>
+
+
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let agendamento of agendamentos">
+
+        <td>{{ agendamento.dataAgendamento | date: 'dd/MM/yyyy' }}</td>
+        <td>{{ agendamento.nomeDoSolicitante }}</td>
+        <td>{{ agendamento.descricaoDoAgendamento}}</td>
+
+        
+
+
+
+        <td>
+          <button type="button" class="btn btn-info btn-sm" data-toggle="modal" (click)="pegaId = agendamento._id"  data-target="#modalExemplo" >
+            Editar
+          </button>
+        </td>
+
+        <td>
+          <button type="button" class="btn btn-danger btn-sm" (click)="removerAgendamento(agendamento._id)">
+           Remover
+          </button>
+        </td>
+
+ 
+      </tr>
+
+
+      <div class="modal fade" id="modalExemplo" tabindex="-1" 
+      role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" >
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Editar Agendamento</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body" >              
+              <!--FORM PARA EDITAR O AGENDAMENTO-->
+              <form form class="needs-validation" novalidate #formAtualizarAgendamento="ngForm" 
+              (ngSubmit)="onSubmit(formAtualizarAgendamento)">
+                
+
+              <div class="form-group" hidden>
+                <label for="idAgendamento">ID: </label>
+                <input type="text" class="form-control"  id="idAgendamento" name="idAgendamento" [readonly]="true"
+                [(ngModel)]="pegaId" value="pegaId" placeholder="Digite o ID do Agendamento" ngModel #idAgendamento="ngModel">
+              </div>
+
+
+             
+
+                <div class="form-group">
+                <label for="dataAgendamento">Data de Agendamento: </label>
+                <input type="date" class="form-control"  id="dataAgendamento" name="dataAgendamento" 
+                [(ngModel)]="agendamento.dataAgendamento" ngModel #dataAgendamento="ngModel">
+              </div>
+
+              <div class="form-group">
+                <label for="nomeSolicitante">Nome do Solicitante: </label>
+                <input type="text" class="form-control"  id="nomeSolicitante" name="nomeSolicitante" 
+                [(ngModel)]="agendamento.nomeDoSolicitante" placeholder="Digite o Nome do Solicitante" ngModel #nomeSolicitante="ngModel">
+              </div>
+
+
+              <div class="form-group">
+                <label for="descriAgendamento">Descrição do Agendamento </label>
+                <input type="text" class="form-control"  id="descriAgendamento" name="descriAgendamento" 
+                [(ngModel)]="agendamento.descricaoDoAgendamento" placeholder="Digite a descrição do Agendamento" ngModel #descriAgendamento="ngModel">
+              </div>
+
+
+
+
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
+                      <button type="submit" class="btn btn-dark" [disabled]="!formAtualizarAgendamento.valid" (click)="atualizarAgendamento(agendamento._id)">Salvar Alterações</button>
+                    </div>
+
+       
+            </form>
+    
+            </div>
+ 
+          </div>
+        </div>
+      </div>
+
+    </tbody>
+  </table>
+
+  
+  
+      </div>
+    </div>
+  </div>
+  
+</div>
+
+

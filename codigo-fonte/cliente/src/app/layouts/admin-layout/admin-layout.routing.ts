@@ -2,10 +2,7 @@ import { Routes } from "@angular/router";
 
 import { PaginaInicialComponent } from "../../pages/Pagina-Inicial/pagina-inicial.component";
 
-import { NotificationsComponent } from "../../pages/notifications/notifications.component";
-import { UserComponent } from "../../pages/user/user.component";
-import { TablesComponent } from "../../pages/tables/tables.component";
-import { TypographyComponent } from "../../pages/typography/typography.component";
+
 import { CadastroComponent } from 'src/app/pages/cadastro/cadastro.component';
 import { CadastroFuncionarioComponent } from 'src/app/pages/cadastro/cadastro-funcionario/cadastro-funcionario.component';
 import { CadastroClienteComponent } from 'src/app/pages/cadastro/cadastro-cliente/cadastro-cliente.component';
@@ -16,6 +13,14 @@ import { CadastroProdutoComponent } from 'src/app/pages/cadastro/cadastro-produt
 import { ListarProdutosComponent } from 'src/app/pages/listar/listar-produtos/listar-produtos.component';
 import { CadastroOrcamentoComponent } from 'src/app/pages/cadastro/cadastro-orcamento/cadastro-orcamento.component';
 import { ListarOrcamentosComponent } from 'src/app/pages/listar/listar-orcamentos/listar-orcamentos.component';
+import { CadastroAgendamentoComponent } from 'src/app/pages/cadastro/cadastro-agendamento/cadastro-agendamento.component';
+import { CadastroServicoComponent } from 'src/app/pages/cadastro/cadastro-servico/cadastro-servico.component';
+import { CadastroEstoqueComponent } from 'src/app/pages/cadastro/cadastro-estoque/cadastro-estoque.component';
+import { CadastroFornecedorComponent } from 'src/app/pages/cadastro/cadastro-fornecedor/cadastro-fornecedor.component';
+import { ListarEstoqueComponent } from 'src/app/pages/listar/listar-estoque/listar-estoque.component';
+import { ListarFornecedorComponent } from 'src/app/pages/listar/listar-fornecedor/listar-fornecedor.component';
+import { ListarAgendamentoComponent } from 'src/app/pages/listar/listar-agendamento/listar-agendamento.component';
+import { ListarComponent } from 'src/app/pages/listar/listar.component';
 
 
 // import { RtlComponent } from "../../pages/rtl/rtl.component";
@@ -30,19 +35,26 @@ export const AdminLayoutRoutes: Routes = [
   { path: "cadastrarCliente", component: CadastroClienteComponent },
   { path: "cadastrarProduto", component: CadastroProdutoComponent},
   { path: "cadastrarOrcamento", component: CadastroOrcamentoComponent},
+  { path: "cadastrarAgendamento", component: CadastroAgendamentoComponent},
+  { path: "cadastrarServico", component: CadastroServicoComponent},
+  { path: "cadastrarEstoque", component: CadastroEstoqueComponent},
+  { path: "cadastrarFornecedor", component: CadastroFornecedorComponent},
+
 
     // Rotas de Listagens
+    { path: "listar", component: ListarComponent},
+
   { path: "listarClientes", component: ListarClientesComponent},
   { path: "listarFuncionarios", component: ListarFuncionariosComponent},
   { path: "listarServicos", component: ListarServicosComponent },
   { path: "listarProdutos", component: ListarProdutosComponent },
   { path: "listarOrcamentos", component: ListarOrcamentosComponent},
+  { path: "listarEstoque", component: ListarEstoqueComponent},
+  { path: "listarFornecedor", component: ListarFornecedorComponent},
+  { path: "listarAgendamento", component: ListarAgendamentoComponent},
+  
 
 
 
-  { path: "notifications", component: NotificationsComponent },
-  { path: "user", component: UserComponent },
-  { path: "tables", component: TablesComponent },
-  { path: "typography", component: TypographyComponent },
   // { path: "rtl", component: RtlComponent }
 ];

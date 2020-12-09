@@ -1,0 +1,58 @@
+
+<div class=" content">
+    <div class=" row">
+      <div class=" col-md-12">
+        <div class=" card">
+          <div class=" card-header">
+            <h5 style="color: black; text-align: center; padding-bottom: 15px;">Cadastrar Produto no Estoque</h5>
+          </div>
+        </div>------------------------------------------------------------+
+        .
+  
+        <!--Form para cadastrar Produto de Estoque-->
+        <div class="card">
+          <div class="card-header p-3 mb-2 bg-dark text-white">
+  
+            <form class="needs-validation" novalidate #formCadastroProdutoDeEstoque="ngForm" (ngSubmit)="onSubmit(formCadastroProdutoDeEstoque)">
+  
+              <div class="form-row">
+                <div class="col-md-4 mb-3">
+                  <label for="nomeProduto">Nome: *</label>
+                  <input type="text" class="form-control"  id="nomeProduto" name="nomeProduto" 
+                  [(ngModel)]="estoque.nomeDoProduto" placeholder="Digite o nome do Produto" ngModel required #nomeProduto="ngModel">
+                  <div class="alert alert-danger" role="alert" *ngIf="!nomeProduto.valid && nomeProduto.touched">
+                   O campo Nome é obrigatório
+                  </div>
+                </div>
+  
+                <div class="col-md-4 mb-3">
+                  <label for="quantidadeProduto">Quantidade: *</label>
+                  <input type="text" class="form-control" id="quantidadeProduto" name="quantidadeProduto" 
+                  [(ngModel)]="estoque.quantidadeDeProdutos" placeholder="Digite a quantidade de produtos" ngModel required #quantidadeProduto="ngModel">
+                  <div class="alert alert-danger" role="alert" *ngIf="!quantidadeProduto.valid && quantidadeProduto.touched">
+                    O campo Quantidade é obrigatório
+                  </div>
+                </div>
+
+  
+              </div>
+      
+
+              
+  
+              <div class="col-md-12 fundo" align="center">
+              <button type="submit" (click)="cadastrarEstoque()" [disabled]="!formCadastroProdutoDeEstoque.valid" class="btn btn-secondary btn-lg">Cadastrar</button>
+              <button type="submit" class="btn btn-secondary btn-lg" style="margin-left: 10px;">Limpar</button>
+            </div>
+            </form>
+            
+        </div>
+      </div>
+  
+      <div class="col-md-12 fundo" align="center">
+        <a routerLink="/cadastro" class="btn btn-secondary btn-lg">Voltar</a>
+      </div>
+  
+    </div>
+  </div>
+  

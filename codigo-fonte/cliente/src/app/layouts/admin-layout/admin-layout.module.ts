@@ -7,10 +7,7 @@ import { FormsModule } from "@angular/forms";
 import { AdminLayoutRoutes } from "./admin-layout.routing";
 
 
-import { NotificationsComponent } from "../../pages/notifications/notifications.component";
-import { UserComponent } from "../../pages/user/user.component";
-import { TablesComponent } from "../../pages/tables/tables.component";
-import { TypographyComponent } from "../../pages/typography/typography.component";
+
 // import { RtlComponent } from "../../pages/rtl/rtl.component";
 
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
@@ -25,6 +22,14 @@ import { CadastroProdutoComponent } from 'src/app/pages/cadastro/cadastro-produt
 import { ListarProdutosComponent } from 'src/app/pages/listar/listar-produtos/listar-produtos.component';
 import { CadastroOrcamentoComponent } from 'src/app/pages/cadastro/cadastro-orcamento/cadastro-orcamento.component';
 import { ListarOrcamentosComponent } from 'src/app/pages/listar/listar-orcamentos/listar-orcamentos.component';
+import { CadastroFornecedorComponent } from 'src/app/pages/cadastro/cadastro-fornecedor/cadastro-fornecedor.component';
+import { CadastroEstoqueComponent } from 'src/app/pages/cadastro/cadastro-estoque/cadastro-estoque.component';
+import { CadastroAgendamentoComponent } from 'src/app/pages/cadastro/cadastro-agendamento/cadastro-agendamento.component';
+import { CadastroServicoComponent } from 'src/app/pages/cadastro/cadastro-servico/cadastro-servico.component';
+import { ListarEstoqueComponent } from 'src/app/pages/listar/listar-estoque/listar-estoque.component';
+import { ListarFornecedorComponent } from 'src/app/pages/listar/listar-fornecedor/listar-fornecedor.component';
+import { ListarAgendamentoComponent } from 'src/app/pages/listar/listar-agendamento/listar-agendamento.component';
+import { ListarComponent } from 'src/app/pages/listar/listar.component';
 
 
 
@@ -39,8 +44,6 @@ import { ListarOrcamentosComponent } from 'src/app/pages/listar/listar-orcamento
   ],
   declarations: [
     PaginaInicialComponent,
-    UserComponent,
-    TablesComponent,
 
     
     CadastroComponent,
@@ -48,17 +51,22 @@ import { ListarOrcamentosComponent } from 'src/app/pages/listar/listar-orcamento
     CadastroClienteComponent,
     CadastroProdutoComponent,
     CadastroOrcamentoComponent,
+    CadastroFornecedorComponent,
+    CadastroEstoqueComponent,
+    CadastroAgendamentoComponent,
+    CadastroServicoComponent,
 
-
-    ListarClientesComponent,
+    ListarComponent,
     ListarClientesComponent,
     ListarServicosComponent,
     ListarFuncionariosComponent,
     ListarProdutosComponent,
     ListarOrcamentosComponent,
+    ListarEstoqueComponent,
+    ListarFornecedorComponent,
+    ListarAgendamentoComponent,
   
-    TypographyComponent,
-    NotificationsComponent,
+
 
     // RtlComponent
   ],

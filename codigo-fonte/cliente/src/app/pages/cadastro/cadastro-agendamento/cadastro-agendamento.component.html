@@ -1,0 +1,69 @@
+
+<div class=" content">
+  <div class=" row">
+    <div class=" col-md-12">
+      <div class=" card">
+        <div class=" card-header">
+          <h5 style="color: black; text-align: center; padding-bottom: 15px;">Cadastrar Agendamento</h5>
+        </div>
+      </div>------------------------------------------------------------+
+      .
+
+      <!--Form para cadastrar Agendamento-->
+      <div class="card">
+        <div class="card-header p-3 mb-2 bg-dark text-white">
+
+          <form class="needs-validation" novalidate #formCadastroAgendamento="ngForm" (ngSubmit)="onSubmit(formCadastroAgendamento)">
+
+            <div class="form-row">
+              <div class="col-md-4 mb-3">
+                <label for="nomeSolicitante">Nome do Solicitante: *</label>
+                <input type="text" class="form-control"  id="nomeSolicitante" name="nomeSolicitante" 
+                [(ngModel)]="agendamento.nomeDoSolicitante" placeholder="Digite o nome do Solicitante" ngModel required #nomeSolicitante="ngModel">
+                <div class="alert alert-danger" role="alert" *ngIf="!nomeSolicitante.valid && nomeSolicitante.touched">
+                 O campo Nome do Solicitante é obrigatório
+                </div>
+              </div>
+
+              <div class="col-md-4 mb-3">
+                <label for="descricaoAgendamento">Descrição do Agendamento: *</label>
+                <input type="text" class="form-control" id="setorFuncionario" name="setorFuncionario" 
+                [(ngModel)]="agendamento.descricaoDoAgendamento" placeholder="Digite a descrição do agendamento " ngModel required #setorDoFuncionario="ngModel">
+                <div class="alert alert-danger" role="alert" *ngIf="!setorDoFuncionario.valid && setorDoFuncionario.touched">
+                  O campo Setor é obrigatório
+                </div>
+              </div>
+
+              <div class="col-md-3 mb-3">
+                <label for="dataAgendamento">Data de Agendamento: *</label>
+                <input type="date" class="form-control" id="dataNascimentoFuncionario" name="dataAgendamento" 
+                [(ngModel)]="agendamento.dataAgendamento" ngModel required  #dataAgendamento="ngModel">
+                <div class="alert alert-danger" role="alert" 
+                *ngIf="!dataAgendamento.valid && dataAgendamento.touched">
+                  O campo Data de Agendamento é obrigatório
+                </div>
+              </div>
+
+            </div>
+
+    
+
+          
+ 
+            
+
+            <div class="col-md-12 fundo" align="center">
+            <button type="submit" (click)="cadastrarAgendamento()" [disabled]="!formCadastroAgendamento.valid" class="btn btn-secondary btn-lg">Cadastrar</button>
+            <button type="submit" class="btn btn-secondary btn-lg" style="margin-left: 10px;">Limpar</button>
+          </div>
+          </form>
+          
+      </div>
+    </div>
+
+    <div class="col-md-12 fundo" align="center">
+      <a routerLink="/cadastro" class="btn btn-secondary btn-lg">Voltar</a>
+    </div>
+
+  </div>
+</div>

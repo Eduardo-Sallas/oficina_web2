@@ -18,7 +18,9 @@ exports.criar_produto_no_estoque = function(req,res){
     novo_produto_no_estoque.save(function(err, estoque) {
             if(err){
             res.send(err);
+            console.log('Erro ao cadastrar produto no estoque', err);
         }
+        console.log('Produto cadastrado no estoque com sucesso');
         res.json(estoque);
     });
 }
@@ -46,7 +48,7 @@ exports.atualizar_produto_no_Estoque = function(req, res){
 
 // DELETE - Remover um Produto existente do Estoque
 exports.remover_produto_do_estoque = function(req, res){
-    Estoque.remove({_id: req.params.produtoId},function(err, estoque) {
+    Estoque.remove({_id: req.params.produtoEstoqueId},function(err, estoque) {
         if(err){
             res.send(err);
         }

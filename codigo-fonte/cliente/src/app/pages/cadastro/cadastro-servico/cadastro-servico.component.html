@@ -1,0 +1,87 @@
+
+<div class=" content">
+    <div class=" row">
+      <div class=" col-md-12">
+        <div class=" card">
+          <div class=" card-header">
+            <h5 style="color: black; text-align: center; padding-bottom: 15px;">Cadastrar Serviço</h5>
+          </div>
+        </div>------------------------------------------------------------+
+        .
+  
+        <!--Form para cadastrar Servico-->
+        <div class="card">
+          <div class="card-header p-3 mb-2 bg-dark text-white">
+  
+            <form class="needs-validation" novalidate #formCadastroServico="ngForm" (ngSubmit)="onSubmit(formCadastroServico)">
+  
+              <div class="form-row">
+                <div class="col-md-4 mb-3">
+                  <label for="nomeProprietario">Nome do Proprietário: *</label>
+                  <input type="text" class="form-control"  id="nomeProprietario" name="nomeProprietario" 
+                  [(ngModel)]="servico.nomeDoProprietario" placeholder="Digite o nome do Proprietário" ngModel required #nomeProprietario="ngModel">
+                  <div class="alert alert-danger" role="alert" *ngIf="!nomeProprietario.valid && nomeProprietario.touched">
+                   O campo Nome do Proprietário é obrigatório
+                  </div>
+                </div>
+  
+                <div class="col-md-4 mb-3">
+                  <label for="nomeDoVeiculo">Nome do Veículo: *</label>
+                  <input type="text" class="form-control" id="nomeDoVeiculo" name="nomeDoVeiculo" 
+                  [(ngModel)]="servico.nomeDoVeiculo" placeholder="Digite o nome do Veiculo" ngModel required #nomeDoVeiculo="ngModel">
+                  <div class="alert alert-danger" role="alert" *ngIf="!nomeDoVeiculo.valid && nomeDoVeiculo.touched">
+                    O campo nome do Veículo é obrigatório
+                  </div>
+                </div>
+                  
+                <div class="col-md-4 mb-3">
+                    <label for="anoDoVeiculo">Ano do Veículo: *</label>
+                    <input type="text" class="form-control" id="nomeDoVeiculo" name="anoDoVeiculo" 
+                    [(ngModel)]="servico.anoDoVeiculo" placeholder="Digite o ano do Veiculo" ngModel required #anoDoVeiculo="ngModel">
+                    <div class="alert alert-danger" role="alert" *ngIf="!anoDoVeiculo.valid && anoDoVeiculo.touched">
+                      O campo Ano do Veículo é obrigatório
+                    </div>
+                  </div>
+
+
+                  <div class="col-md-4 mb-3">
+                    <label for="descricaoDoServico">Descrição do Serviço: *</label>
+                    <input type="text" class="form-control" id="descricaoDoServico" name="descricaoDoServico" 
+                    [(ngModel)]="servico.descricaoDoServico" placeholder="Digite o a Descrição do Serviço" ngModel required #descricaoDoServico="ngModel">
+                    <div class="alert alert-danger" role="alert" *ngIf="!descricaoDoServico.valid && descricaoDoServico.touched">
+                      O campo Descrição do Serviço é obrigatório
+                    </div>
+                  </div>
+
+
+                  <div class="col-md-4 mb-3">
+                    <label for="statusDoServico">Status do Serviço: *</label>
+                    <input type="text" class="form-control" id="statusDoServico" name="statusDoServico" 
+                    [(ngModel)]="servico.statusDoServico" placeholder="Digite o status do Serviço, ex: Em andamento" ngModel required #statusDoServico="ngModel">
+                    <div class="alert alert-danger" role="alert" *ngIf="!statusDoServico.valid && statusDoServico.touched">
+                      O campo Status do Serviço é obrigatório
+                    </div>
+                  </div>
+
+  
+              </div>
+      
+
+              
+  
+              <div class="col-md-12 fundo" align="center">
+              <button type="submit" (click)="cadastrarServico()" [disabled]="!formCadastroServico.valid" class="btn btn-secondary btn-lg">Cadastrar</button>
+              <button type="submit" class="btn btn-secondary btn-lg" style="margin-left: 10px;">Limpar</button>
+            </div>
+            </form>
+            
+        </div>
+      </div>
+  
+      <div class="col-md-12 fundo" align="center">
+        <a routerLink="/cadastro" class="btn btn-secondary btn-lg">Voltar</a>
+      </div>
+  
+    </div>
+  </div>
+  

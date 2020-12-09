@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+import { OrcamentoService } from 'src/app/services/orcamento/orcamento.service';
 import { OrcamentoModel } from './cadastro-orcamento.model';
-import { CadastroOrcamentoService } from './cadastro-orcamento.service';
-import { TipoSolicitacaoModel } from './tipo-solicitacao.model.component';
+
+
 
 @Component({
   selector: 'app-cadastro-orcamento',
   templateUrl: './cadastro-orcamento.component.html',
-  styleUrls: ['./cadastro-orcamento.component.scss']
 })
 export class CadastroOrcamentoComponent implements OnInit {
 
@@ -14,7 +14,7 @@ export class CadastroOrcamentoComponent implements OnInit {
 
 
 
-  constructor(private orcamentoService: CadastroOrcamentoService, ) {}
+  constructor(private orcamentoService: OrcamentoService, ) {}
 
   onSubmit(form) {
     console.log(form);
@@ -26,7 +26,7 @@ export class CadastroOrcamentoComponent implements OnInit {
 
   cadastrarOrcamento() {
     console.log(this.orcamentoService);
-    this.orcamentoService.cadastrarOrcamento(this.orcamento).subscribe(orcamento => {
+    this.orcamentoService.cadastrarOrcamentos(this.orcamento).subscribe(orcamento => {
       this.orcamento = new OrcamentoModel();
    
       alert('Orçamento cadastrado com sucesso!')

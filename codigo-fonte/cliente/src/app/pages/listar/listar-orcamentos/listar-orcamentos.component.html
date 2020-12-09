@@ -1,41 +1,140 @@
 <div class=" content">
-    <div class=" row">
-      <div class=" col-md-12">
-        <div class=" card">
-          <div class=" card-header">
-            <h5 style="color: black; text-align: center; padding-bottom: 15px;">Orçamentos Cadastrados</h5>
-          </div>
+  <div class=" row">
+    <div class=" col-md-12">
+      <div class=" card">
+        <div class=" card-header">
+          <h5 style="color: black; text-align: center; padding-bottom: 15px;">Orçamentos Cadastrados</h5>
         </div>
-  
-        <div class="table-responsive">
-  <table class="table">
-      <thead  class="thead-light" style="text-align: center;">
-        <tr>
-        <th scope="col">Nome do Cliente: </th>
-          <th scope="col">Valor do Orçamento: </th>
-          <th scope="col">Tipo de Solicitação: </th>
-          <th scope="col">Serviço desejado: </th>
-          <th scope="col">Tipo de Veículo:</th>
+      </div>
 
-  
-        </tr>
-      </thead>
-      <tbody>
+      <div class="table-responsive">
+<table class="table">
+    <thead  class="thead-light" style="text-align: center;">
+      <tr>
+
+        <th scope="col">Nome do Cliente: </th>
+        <th scope="col">Valor do Orçamento: </th>
+        <th scope="col">Tipo de Solicitação: </th>
+        <th scope="col">Serviço desejado: </th>
+        <th scope="col">Tipo de Veículo:</th>
+        <th scope="col">Ações</th>
+        <th scope="col"></th>
+
+
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let funcionario of funcionarios">
+
         <tr *ngFor="let orcamento of orcamentos">
           <td>{{ orcamento.nomeCliente}}</td>
           <td>{{ orcamento.valorDoOrcamento | currency: 'BRL' }}</td>
           <td>{{ orcamento.solicitacao }}</td>
           <td>{{ orcamento.servicoDesejado }}</td>
           <td>{{ orcamento.tipoVeiculo }}</td>
+        
 
-          
-        </tr>
+
+
+        <td>
+          <button type="button" class="btn btn-info btn-sm" data-toggle="modal" (click)="pegaId = orcamento._id"  data-target="#modalExemplo" >
+            Editar
+          </button>
+        </td>
+
+        <td>
+          <button type="button" class="btn btn-danger btn-sm" (click)="removerOrcamento(orcamento._id)">
+           Remover
+          </button>
+        </td>
+
+ 
+      </tr>
+
+
+      <div class="modal fade" id="modalExemplo" tabindex="-1" 
+      role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" >
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Editar Orcamento</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body" >              
+              <!--FORM PARA EDITAR O ORÇAMENTO-->
+              <form form class="needs-validation" novalidate #formAtualizarOrcamento="ngForm" 
+              (ngSubmit)="onSubmit(formAtualizarOrcamento)">
+                
+
+              <div class="form-group" hidden>
+                <label for="idOrcamento">ID: </label>
+                <input type="text" class="form-control"  id="idOrcamento" name="idOrcamento" [readonly]="true"
+                [(ngModel)]="pegaId" value="pegaId" placeholder="Digite o ID do Orcamento" ngModel #idOrcamento="ngModel">
+              </div>
+
+
+             
+
+                <div class="form-group">
+                <label for="nomeClienteOrcamento">Nome Do Cliente: </label>
+                <input type="text" class="form-control"  id="nomeClienteOrcamento" name="nomeClienteOrcamento" 
+                [(ngModel)]="orcamento.nomeCliente" placeholder="Digite o Nome do Cliente" ngModel #nomeClienteOrcamento="ngModel">
+              </div>
+
+
+              <div class="form-group">
+                <label for="valorOrcamentoCliente">Valor do Orçamento: </label>
+                <input type="text" class="form-control"  id="valorOrcamentoCliente" name="valorOrcamentoCliente" 
+                [(ngModel)]="orcamento.valorDoOrcamento" placeholder="Digite o valor do Orçamento" ngModel #valorOrcamentoCliente="ngModel">
+              </div>
+
+              <div class="form-group">
+                <label for="solicitacaoOrcamento">Tipo de Solicitação: </label>
+                <input type="text" class="form-control"  id="solicitacaoOrcamento" name="solicitacaoOrcamento" 
+                [(ngModel)]="orcamento.solicitacao" placeholder="Ex: Conserto, Revisão ou Peça" ngModel #solicitacaoOrcamento="ngModel">
+              </div>
+
+              <div class="form-group">
+                <label for="servicoDesejadoOrcamento">Serviço Desejado: </label>
+                <input type="text" class="form-control"  id="servicoDesejadoOrcamento" name="servicoDesejadoOrcamento" 
+                [(ngModel)]="orcamento.servicoDesejado" placeholder="Digite o serviço desejado" ngModel #servicoDesejadoOrcamento="ngModel">
+              </div>
+
+
+              <div class="form-group">
+                <label for="tipoVeiculoOrcamento">Tipo de Veículo: </label>
+                <input type="text" class="form-control"  id="tipoVeiculoOrcamento" name="tipoVeiculoOrcamento" 
+                [(ngModel)]="orcamento.tipoVeiculo" placeholder="Ex: Carro ou Moto" ngModel #tipoVeiculoOrcamento="ngModel">
+              </div>
+
+
+
+
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
+                      <button type="submit" class="btn btn-dark" [disabled]="!formAtualizarOrcamento.valid" (click)="atualizarOrcamento(orcamento._id)">Salvar Alterações</button>
+                    </div>
+
+       
+            </form>
+    
+            </div>
+ 
+          </div>
+        </div>
+      </div>
+
+    </tbody>
+  </table>
+
   
-      </tbody>
-    </table>
-  </div>
   
       </div>
     </div>
   </div>
   
+</div>
+
+

@@ -3,23 +3,25 @@
 const mongoose = require('mongoose'),
     Cliente = mongoose.model('Clientes');
 
-// GET - Listar todos os funcionários cadastrados
+// GET - Listar todos os clientes cadastrados
 exports.listar_todos_clientes = function(req, res){
     Cliente.find({}, function(err, cliente){
         if(err){
             res.send(err);
+            console.log('Erro ao listar os clientes', err);
         }
         res.json(cliente);
+        console.log('Clientes listados com sucesso!', err);
     });
 }
 
-// POST - Cadastrar um novo Funcionário
+// POST - Cadastrar um novo cliente
 exports.criar_cliente = function(req,res){
     var novo_cliente = new Cliente(req.body);
     novo_cliente.save(function(err, cliente) {
             if(err){
-                console.log(err);
             res.send(err);
+            console.log('Erro ao cadastrar um novo cliente', err);
         }else {
         res.json(cliente);
         console.log('Cliente cadastrado com sucesso!');
@@ -27,13 +29,15 @@ exports.criar_cliente = function(req,res){
     });
 }
 
-// GET by ID - Retorna um funcionário por um id específico
+// GET by ID - Retorna um cliente por um id específico
 
 exports.listar_cliente_por_id = function(req, res){
     Cliente.findById(req.params.clienteId, function(err, cliente) {
         if(err){
             res.send(err);
+            console.log('Erro ao retornar o cliente');
         }
+        console.log('Cliente listado com sucesso!')
         res.json(cliente);
     });
 }

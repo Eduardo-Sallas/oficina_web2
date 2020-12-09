@@ -1,7 +1,7 @@
 import { StringMap } from '@angular/compiler/src/compiler_facade_interface'
 
 export class OrcamentoModel {
-    valorOrcamento: Number;
+    valorDoOrcamento: Number;
     solicitacao: String;
     nomeCliente: String;
     servicoDesejado: String;

@@ -1,0 +1,113 @@
+<div class=" content">
+    <div class=" row">
+      <div class=" col-md-12">
+        <div class=" card">
+          <div class=" card-header">
+            <h5 style="color: black; text-align: center; padding-bottom: 15px;">Produtos de Estoque Cadastrados</h5>
+          </div>
+        </div>
+  
+        <div class="table-responsive">
+  <table class="table">
+      <thead  class="thead-light" style="text-align: center;">
+        <tr>
+          <th scope="col">Nome Do Produto</th>
+          <th scope="col">Quantidade do Produto</th>
+          <th scope="col">Ações</th>
+          <th scope="col"></th>
+  
+  
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let funcionario of funcionarios">
+  
+          <tr *ngFor="let estoque of estoques">
+            <td>{{ estoque.nomeDoProduto }}</td>
+            <td>{{ estoque.quantidadeDeProdutos }}</td>
+  
+  
+  
+          <td>
+            <button type="button" class="btn btn-info btn-sm" data-toggle="modal" (click)="pegaId = estoque._id"  data-target="#modalExemplo" >
+              Editar
+            </button>
+          </td>
+  
+          <td>
+            <button type="button" class="btn btn-danger btn-sm" (click)="removerEstoque(estoque._id)">
+             Remover
+            </button>
+          </td>
+  
+   
+        </tr>
+  
+  
+        <div class="modal fade" id="modalExemplo" tabindex="-1" 
+        role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" >
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Editar Produto</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body" >              
+                <!--FORM PARA EDITAR O ESTOQUE-->
+                <form form class="needs-validation" novalidate #formAtualizarEstoque="ngForm" 
+                (ngSubmit)="onSubmit(formAtualizarEstoque)">
+                  
+  
+                <div class="form-group" hidden>
+                  <label for="idEstoque">ID: </label>
+                  <input type="text" class="form-control"  id="idEstoque" name="idEstoque" [readonly]="true"
+                  [(ngModel)]="pegaId" value="pegaId" placeholder="Digite o ID do Estoque" ngModel #idEstoque="ngModel">
+                </div>
+              
+  
+                  <div class="form-group">
+                  <label for="nomeProduto">Nome Do Produto: </label>
+                  <input type="text" class="form-control"  id="nomeProduto" name="nomeProduto" 
+                  [(ngModel)]="estoque.nomeDoProduto" placeholder="Digite o Nome do Produto" ngModel #nomeProduto="ngModel">
+                </div>
+  
+  
+                <div class="form-group">
+                  <label for="quantidadeProduto">Quantidade do Produto: </label>
+                  <input type="text" class="form-control"  id="quantidadeProduto" name="quantidadeProduto" 
+                  [(ngModel)]="estoque.quantidadeDeProdutos" placeholder="Digite a quantidade do Produto" ngModel #quantidadeProduto="ngModel">
+                </div>
+  
+  
+  
+  
+  
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
+                        <button type="submit" class="btn btn-dark" [disabled]="!formAtualizarEstoque.valid" (click)="atualizarEstoque(estoque._id)">Salvar Alterações</button>
+                      </div>
+  
+         
+              </form>
+      
+              </div>
+   
+            </div>
+          </div>
+        </div>
+  
+      </tbody>
+    </table>
+  
+    
+    
+        </div>
+      </div>
+    </div>
+    
+  </div>
+  
+  
+  

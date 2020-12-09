@@ -1,0 +1,58 @@
+
+<div class=" content">
+    <div class=" row">
+      <div class=" col-md-12">
+        <div class=" card">
+          <div class=" card-header">
+            <h5 style="color: black; text-align: center; padding-bottom: 15px;">Cadastrar Fornecedor</h5>
+          </div>
+        </div>------------------------------------------------------------+
+        .
+  
+        <!--Form para cadastrar cliente-->
+        <div class="card">
+          <div class="card-header p-3 mb-2 bg-dark text-white">
+  
+            <form class="needs-validation" novalidate #formCadastroFornecedor="ngForm" (ngSubmit)="onSubmit(formCadastroFornecedor)">
+  
+              <div class="form-row">
+                <div class="col-md-4 mb-3">
+                  <label for="nomeFornecedor">Nome do Fornecedor: *</label>
+                  <input type="text" class="form-control"  id="nomeFornecedor" name="nomeFornecedor" 
+                  [(ngModel)]="fornecedor.nomeDoFornecedor" placeholder="Digite o nome do Fornecedor" ngModel required #nomeFornecedor="ngModel">
+                  <div class="alert alert-danger" role="alert" *ngIf="!nomeFornecedor.valid && nomeFornecedor.touched">
+                   O campo Nome do Fornecedor é obrigatório
+                  </div>
+                </div>
+  
+                <div class="col-md-4 mb-3">
+                  <label for="fornecimentoProduto">Produto Fornecido: *</label>
+                  <input type="text" class="form-control" id="fornecimentoProduto" name="fornecimentoProduto" 
+                  [(ngModel)]="fornecedor.fornecimento" placeholder="Digite o Produto Fornecido" ngModel required #fornecimentoProduto="ngModel">
+                  <div class="alert alert-danger" role="alert" *ngIf="!fornecimentoProduto.valid && fornecimentoProduto.touched">
+                    O campo Produto Fornecido é obrigatório
+                  </div>
+                </div>
+
+  
+              </div>
+      
+
+              
+  
+              <div class="col-md-12 fundo" align="center">
+              <button type="submit" (click)="cadastrarFornecedor()" [disabled]="!formCadastroFornecedor.valid" class="btn btn-secondary btn-lg">Cadastrar</button>
+              <button type="submit" class="btn btn-secondary btn-lg" style="margin-left: 10px;">Limpar</button>
+            </div>
+            </form>
+            
+        </div>
+      </div>
+  
+      <div class="col-md-12 fundo" align="center">
+        <a routerLink="/cadastro" class="btn btn-secondary btn-lg">Voltar</a>
+      </div>
+  
+    </div>
+  </div>
+  

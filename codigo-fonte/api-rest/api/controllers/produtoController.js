@@ -41,8 +41,10 @@ exports.atualizar_produto = function(req, res){
     Produto.findOneAndUpdate({_id: req.params.produtoId}, req.body, {new: true}, function(err, produto) {
         if(err){
             res.send(err);
+            console.log('Erro ao Atualizar o Produto');
         }
         res.json(produto);
+        console.log('Produto atualizado com sucesso', produto);
     });
 }
 
@@ -51,7 +53,9 @@ exports.remover_produto = function(req, res){
     Produto.remove({_id: req.params.produtoId},function(err, produto) {
         if(err){
             res.send(err);
+            console.log('Erro ao Remover o Produto');
         }
-        res.json( {message: 'Funcionário removido com sucesso'} );
+        res.json( {message: 'Produto removido com sucesso'} );
+        console.log('Produto removido com sucesso!');
     });
 }

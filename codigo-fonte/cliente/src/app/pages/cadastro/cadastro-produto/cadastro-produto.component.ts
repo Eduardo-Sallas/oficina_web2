@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { ProdutoService } from 'src/app/services/produto/produto.service';
 import { ProdutoModel } from './cadastro-produto.model';
-import { CadastroProdutoService } from './cadastro-produto.service';
+
 
 @Component({
   selector: 'app-cadastro-produto',
-  templateUrl: './cadastro-produto.component.html',
-  styleUrls: ['./cadastro-produto.component.scss']
+  templateUrl: './cadastro-produto.component.html'
 })
 export class CadastroProdutoComponent implements OnInit {
 
@@ -15,7 +15,7 @@ export class CadastroProdutoComponent implements OnInit {
     console.log(form);
   }
 
-  constructor(private cadastroProdutoService: CadastroProdutoService) {}
+  constructor(private cadastroProdutoService: ProdutoService) {}
 
   ngOnInit() {}
 
